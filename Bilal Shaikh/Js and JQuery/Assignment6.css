@@ -1,0 +1,10 @@
+#marksheet{
+    font-size: 80px;
+    background-color: teal;
+    border: 2px solid black ;
+    color: white;
+}
+#assignment{
+    text-align: center;
+    font-size: 60px;
+}

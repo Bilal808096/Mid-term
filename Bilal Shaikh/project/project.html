@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Cream</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jquery.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        body{
+            background-image: url("bg1.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        h1{
+            font-size: 70px;
+            color: transparent;
+            -webkit-text-stroke: .1vw black;
+        }
+        h1:hover{
+            color: black;
+        }
+        input{
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid white;
+            text-align: center;
+        }
+        .table{
+            background-color: rgba(0, 0, 0, .2);
+            margin-top: 20px;
+            color: white;
+        }
+        table{
+            border: 1px solid black;
+        }
+        table tr th{
+            font-size: 20px;
+            text-align: center;
+        }
+        select{
+            background-color: transparent;
+            color: white;
+            border: none;
+            
+        }
+        select option{
+            color: black;
+        }
+        button:hover{
+            color: aliceblue;
+            background-color: skyblue;
+            box-shadow: 0 0 10px skyblue, 0 0 40px skyblue, 0 0 80px skyblue;
+        }
+        #cold{
+            border: 1px solid black;
+            border-radius: 20px;
+            color: black;
+            background-color: rgba(0, 0, 0, .1);
+        }
+    </style>
+    <script>
+
+    $(document).ready(function(){
+        
+        var s_quan;
+        var d_quan;
+        var f_quan;
+
+        var s_price;
+        var d_price;
+        var f_price;
+
+        var s_total;
+        var d_total;
+        var f_total;
+
+        $("#s_quan").keyup(function(){
+
+            s_quan = parseInt($("#s_quan").val());
+            s_price = 60;
+
+            s_total = s_quan*s_price;
+            $("#s_total").html(s_total);
+        })
+
+        $('#d_quan').keyup(function(){
+
+            d_quan = parseInt($('#d_quan').val());
+            d_price = 100;
+
+            d_total = d_quan*d_price;
+            $("#d_total").html(d_total);
+        })
+        $('#f_quan').keyup(function(){
+            f_quan = parseInt($('#f_quan').val());
+            f_price = 400;
+
+            f_total = f_quan*f_price;
+            $('#f_total').html(f_total)
+        })
+       
+        $('#submit').click(function() {
+
+            var s = $("#s_quan").val();
+            var d = $("#d_quan").val();
+            var f = $("#f_quan").val();
+
+            if(s=="" && d=="" && f==""){
+
+                alert("Enter Quantity Of your Item");
+            }
+            else if (s!="" && d=="" && f==""){
+
+                $("#total_quan").html(s_quan);
+                $("#total_bill").html(s_total);
+            }
+            else if (s=="" && d!="" && f==""){
+
+                $("#total_quan").html(d_quan);
+                $("#total_bill").html(d_total);
+            }
+            else if(s=="" && d=="" && f!=""){
+                $("#total_quan").html(f_quan);
+                $("#total_bill").html(f_total);
+            }
+            else if (s!="" && d!= "" && f==""){
+
+                $("#total_quan").html(s_quan+d_quan);
+                $("#total_bill").html(s_total+d_total);
+            }
+            else if(s=="" && d!="" && f!=""){
+                $("#total_quan").html(d_quan+f_quan)
+                $("#total_bill").html(d_price+f_price)
+            }
+            else if(s!="" && d=="" && f!=""){
+                $("#total_quan").html(s_quan+f_quan)
+                $("#total_bill").html(s_price+f_price)
+            }
+            else if(s!="" && d!="" && f!=""){
+                $("#total_quan").html(s_quan+d_quan+f_quan)
+                $("#total_bill").html(s_price+d_price+f_price)
+            }
+        })
+    })
+    </script>
+</head>
+<body>
+<center>
+    <div class="row">
+        <div class="col-2"><img src="ice_cream3.gif" height="100px"></div>
+        <div class="col-8">
+    <h1>Precious Ice Cream</h1>
+</div>
+<div class="col-2"><img src="ice_cream3.gif" height="100px"></div>
+
+</div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+    <div class="table">
+    <table class="table table-dark table-hover">
+        <tr>
+            <th>Scoop</th>
+            <th>Choose Flavor</th>
+            <th>Prize</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+        </tr>
+        <tr>
+            <td align="center">&#9924 Single Scoop</td>
+            <td><select>
+                <option selected disabled>Choose Flavor</option>
+                <option>Pista</option>
+                <option>Butter Scotch</option>
+                <option>Kulfa</option>
+                <option>Mango</option>
+                <option>Tooti Fruity</option>
+                <option>Blue Berry</option>
+                <option>Belgian</option>
+                <option>Butter Cheese</option>
+                <option>Strewberry</option>
+                <option>Chocolate</option>
+                <option>Belgian Chocolate</option>
+
+            </select></td>
+            <td align="center">Rs.60</td>
+            <td><input type="text" id="s_quan" placeholder="Qty Of Single Scoop"></td>
+            <td align="center"><output id="s_total"></output></td>
+        </tr>
+        <tr>
+            <td align="center">&#9924 Double Scoop</td>
+            <td><select>
+                <option selected disabled>Choose Flavor</option>
+                <option>Pista</option>
+                <option>Butter Scotch</option>
+                <option>Kulfa</option>
+                <option>Mango</option>
+                <option>Tooti Fruity</option>
+                <option>Blue Berry</option>
+                <option>Belgian</option>
+                <option>Butter Cheese</option>
+                <option>Strewberry</option>
+                <option>Chocolate</option>
+                <option>Belgian Chocolate</option>
+
+            </select></td>
+            <td align="center">Rs.100</td>
+            <td><input type="text" id="d_quan" placeholder="Qty Of Double Scoop"></td>
+            <td align="center"><output id="d_total"></output></td>
+        </tr>
+        <tr>
+            <td align="center">&#9924 Family Pack</td>
+            <td><select>
+                <option selected disabled>Choose Flavor</option>
+                <option>Pista</option>
+                <option>Butter Scotch</option>
+                <option>Kulfa</option>
+                <option>Mango</option>
+                <option>Tooti Fruity</option>
+                <option>Blue Berry</option>
+                <option>Belgian</option>
+                <option>Butter Cheese</option>
+                <option>Strewberry</option>
+                <option>Chocolate</option>
+                <option>Belgian Chocolate</option>
+            </select></td>
+            <td align="center">Rs.400</td>
+            <td><input type="text" id="f_quan" placeholder="Qty Of Family Pack"></td>
+            <td align="center"><output id="f_total"></output></td>
+        </tr>
+        <tr>
+           <th colspan="3"><button id="submit" class="btn btn-info" style="padding: 10px; margin-left: 120px; width: 200px;">Total</button></th>
+            <th><output id="total_quan"></output></th>
+            <th><output id="total_bill"></output></th>
+        </tr>
+    </table>
+</div>
+</div>
+<div class="col-1"></div>
+</div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-7"><marquee direction="right"><img src="walking1.gif" height="150px"></marquee>
+        <marquee id="cold">&#9924 It's never cold for ice cream &#9924</marquee></div>
+    <div class="col-4"><img src="ice_cream2.gif" height="220px"></div>
+</div>
+</center>
+</body>
+</html>

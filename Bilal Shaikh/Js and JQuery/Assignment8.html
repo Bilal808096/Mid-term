@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Assignment 8
+    </title>
+    <script src="jquery.js"></script>
+</head>
+<style>
+    body{
+        background-image: url("bg8.jpg");
+        background-size: cover;
+        height: 70vh;
+        font-family: sans-serif;
+    }
+    .form{
+            width: 300px;
+            border: 1px solid white;
+            box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-top: 213px;
+            text-align: center;
+        }
+        .form h1{
+            color:  black;
+            margin-bottom: 30px;
+        }
+        .input-box{
+            border-radius: 20px;
+            padding: 10px;
+            margin: 10px 0;
+            width: 250px;
+            border: 1px solid #999;
+            outline: none;
+        }
+        button{
+            color: black;
+            width: 100%;
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 15px;
+            margin: 10px 0;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: black;
+            color: white;
+            width: 100%;
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 15px;
+            margin: 10px 0;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+</style>
+<script>
+    $(document).ready(function(){
+        $("#submit").click(function(){
+            var email = $("#email").val();
+            var password = $("#password").val();
+            if(email == "bilal6060" && password == 12345){
+                alert("Welcome")
+            }
+            else{
+                alert("Incorrect")
+            }
+        })
+    })
+</script>
+<body><center>
+    <div class="form">
+        <h1>Sign Up</h1>
+        <form>
+            <input type="text" class="input-box" placeholder="Enter Email" id="email">
+            <input type="password" class="input-box" placeholder="Enter Password" id="password">
+            <p><span> <input type="checkbox"></span> I agree to the terms of services</p>
+            <button type="submit" class="sign-up-btn" id="submit">Sign Up</button>
+            <hr>
+        </form>
+    </div>
+</center>
+</body>
+</html>
